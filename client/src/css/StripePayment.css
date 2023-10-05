@@ -1,0 +1,30 @@
+#stripe-payment-form {
+    
+    position: absolute;
+    top: 35%;
+    left: 25%;
+    right: 25%;
+    background-color: #F0F0F0;
+    padding: 3%;
+    
+}
+#stripe-payment-form button{
+    background-color: rgb(17, 123, 216);
+    padding: 3% 4%;
+    color: white;
+    border-radius: 10px;
+    margin-top: 10px;
+    width: 100%;
+    
+}
+#stripe-payment-form button PaymentElement{
+    color: white;
+
+}
+#succssfull-payment-component{
+    position: relative;
+    top: 25%;
+    left: 25%;
+    right: 25%;
+
+}

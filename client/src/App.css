@@ -1,0 +1,466 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+#root {
+    background-color: #CCC8AA;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+nav{
+    background-color: #116A7B;
+}
+
+.border-bottom{
+    border-bottom: 1px solid inherit;
+}
+
+#plusbtn, #minusbtn:hover{
+    cursor: pointer;
+}
+/* #addaddress{
+    position: absolute;
+  left: 10%;
+  
+  
+  width: 40%;
+} */
+
+.dashboaredcard :hover{
+    cursor: pointer;
+}
+#ordersparagraph{
+    margin-bottom: 0px;
+}
+#badgecount{
+    position: relative;
+    left: -16px;
+    right: auto;
+    top: -2px;
+}
+
+#badgeshoppingcart{
+    padding: 3px;
+}
+#buttonadminsidebar{
+    text-decoration: none;
+    color: white;
+    text-align: center;
+}
+.sidebar{
+    margin-left: 4px;
+    min-height: 100vh;
+    
+}
+
+#buttonadminsidebar:hover{
+    color: black;
+    background-color: white;
+}
+.orderDetails{
+    
+    margin: 20px 90px 0 90px;
+}
+.orderaddress{
+    line-height: 8px;
+    
+}
+
+.ordersComponent:hover{
+    cursor: pointer;
+}
+
+.navbarBrand:hover{
+    cursor: pointer;
+}
+.filteroption{
+    position: absolute;
+    z-index: 1;
+    background-color: white;
+    padding: 5px 8px;
+    line-height: 30px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+.listhover:hover{
+    cursor: pointer;
+}
+.editaccountbutton{
+    border: 2px solid grey;
+    padding: 7px 14px;
+    border-radius: 10px;
+}
+.editaccountbutton:hover{
+    background-color: gray;
+    color: white;
+}
+
+.editaccountform{
+    position: absolute;
+    z-index: 1;
+    border: 2px sold gray;
+    border-radius: 3%;
+    background-color: gray;
+    padding: 1rem 2rem;
+}
+
+.adminHomelist{
+    border: 2px solid gray;
+    border-radius: 10px;
+    margin: 0 10px;
+    padding-top: 20px ;
+    background-color: #F0F0F0;
+    
+}
+.adminHomelist ul li a{
+    text-decoration: none;
+    color: black;
+}
+.adminHomelist ul li a:hover{
+    color: blue;
+    padding: 10px;
+    background-color: rgb(188, 173, 204);
+}
+.adminHomelist ul li{
+    line-height: 2rem;
+}
+
+.editFormcategory{
+    padding: 10px;
+    border: 2px solid gray;
+    border-radius: 10px;
+    background-color: azure;
+}
+.productImageHome{
+    width: 219;
+    min-width: 219px;
+    min-height: 328.5px;
+    max-height: 328.5px;;
+}
+.formdivadminmanage{
+    background-color: azure;
+    padding: 10px;
+    border: 2px solid gray;
+    border-radius: 10px;
+    position: relative;
+
+    z-index: 1;
+}
+.displayPrdouctandfilter{
+    display: flex;
+    
+}
+
+.displayfilterhome{
+
+    padding: 2px 10px;
+}
+.displayproduct{
+    margin: 3% 2%;
+    display: inline;
+    float: left;
+}
+
+.filterlist{
+    display: block;
+    margin: 10px 20px;
+    
+    
+}
+
+.filterlist button{
+    width: 200px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    background-color: #116A7B;
+    font-weight: bold;
+    color: white;
+}
+.filterlist div{
+    background-color: #116A7B;
+    margin: 0px 0px 10px 20px;
+    
+    color: white;
+    padding-left: 10px;
+    padding-bottom: 5px;
+
+    
+}
+.filterlist option{
+    background-color: #116A7B;
+    margin: 0px 0px 0px 20px;
+    padding: 5px 0px 6px 20px;
+    color: white;
+}
+
+.filterpriceoption:hover{
+    
+    cursor: pointer;
+    background-color: #053B50;
+}
+.filterproductcheckbox:hover{
+    background-color: #053B50;
+}
+
+.filterheading h5 , .filterheading button {
+    display: inline;
+    margin-left: 25px;
+}
+.filterheading button:hover{
+    border: 2px solid rgb(202, 97, 97);
+    border-radius: 20px;
+    padding: 5px 20px;
+}
+
+.productpaginationbutton {
+    
+    border: 2px solid rgb(175, 88, 88);
+    padding: 7px 14px;
+    color: black;
+    margin: 10px 5px 10px 0px;
+}
+.productpaginationbutton:hover{
+    padding: 8px 16px;
+    transition: 1ms;
+}
+
+.currentpageproductpagination{
+    border: 2px solid rgb(175, 88, 88);
+    padding: 7px 14px;
+    color: white;
+    margin: 10px 5px 10px 0px;
+    background-color: rgb(235, 15, 15)  ;
+}
+
+
+
+.displayuserordersdiv{
+    
+    padding: 2rem;
+    background-color: #F0F0F0;
+    margin: 3% 20%;
+    color: gray ;
+}
+#heading-orderpage{
+    text-align: center;
+    font-size: 30px;
+    font-weight: solid;
+    color: gray;
+    margin-top: 10px
+}
+.order-datail-div{
+    display: grid;
+    grid-template-columns: auto auto; 
+    border-bottom: 2px solid black  
+}
+.order-datail-div p{
+    
+    text-align:right;
+    line-height: 14px;
+    font-size: 17px;
+    font-weight: solid;
+}
+.order-shippingaddress{
+    display: grid;
+    grid-template-columns: auto auto;
+
+}
+.order-paymentdetails{
+    text-align: right;
+}
+.order-shippinginfo{
+    text-align: right;
+}
+.ordered-products{
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 10px 20px;
+    margin-top: 5px;
+    background-color: #5B9A8B;
+    
+    color:white;
+}
+
+.ordered-products div img{
+        
+    min-width: 150px;
+    max-width: 150px;
+    min-height: 200px;
+    max-height: 200px;
+}
+.ordered-products div img:hover{
+    cursor:pointer;
+}
+.displayhomepage{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+#footer{
+    overflow-x: hidden;
+    width: 100%;
+    padding: 20px 50px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: white;
+    color: gray;
+    position: relative;
+    bottom: 0px;
+}
+
+@media only screen and (max-width: 520px) {
+    #orderpagecomponent{
+        min-width: 300px; /* Set a fixed width for the container */
+        white-space: nowrap; /* Prevent line breaks within the container */
+        overflow-x: auto; /* Enable horizontal scrolling */
+    }
+    .ordered-products div img{
+        
+        min-width: 150px;
+        max-width: 150px;
+        min-height: 200px;
+        max-height: 200px;
+    }
+    .displayhomepage{
+        display: grid;
+        grid-template-columns: auto;
+    }
+    .ordered-products{
+        display: block;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 20px;
+        margin-top: 5px;
+        
+    }
+    .ordered-products-image{
+        display: flex;
+  justify-content: center;
+  align-items: center;
+        
+    }
+    .child-heading-order-page{
+        text-align: center;
+        margin-bottom: 5px  ;
+    }
+    .order-paymentdetails{
+        text-align: left;
+    }
+    .order-shippinginfo{
+        text-align: left;
+    }
+
+    .order-shippingaddress{
+       display: block;
+       justify-content: left;
+       text-align: left;
+    
+    }
+
+    .order-datail-div p{
+    
+        text-align:left;
+        
+    }
+
+    .order-datail-div{
+        display: block;
+        
+    }
+    .displayproductshomeimage{
+        display: flex;
+        justify-content: center;
+    }
+    .displayproductshomediv{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        padding: 0% 9%;
+    }
+    .displayfilterhome{
+        width: 200px;
+        margin: 2% 0% 0% 0%;
+        text-align: center;
+        text-align: center;
+    }
+
+    .filterlist{
+        display: block;
+        margin: 10px 0px;
+        
+    }
+
+    #footer{
+        
+        display: block;
+    }
+    #footer .div{
+        padding-bottom: 10px;
+    }
+
+}
+
+@media only screen and (max-width: 800px) {
+    body{
+        overflow-x: scroll;
+        overflow-y: scroll;
+    }
+    .displayPrdouctandfilter{
+        display: block;
+        
+    }
+    .displayfilterhome{
+
+        width: 50%;
+        margin: 2% 9% 0% 9%;
+        text-align: center;
+    }
+
+    .filterproductcheckbox{
+        position: relative;
+        max-width: 50%;
+    }
+
+    .displayuserordersdiv{
+    
+        padding: 2rem;
+        margin: 3% 3%;
+        color: gray ;
+    }
+    .displayInfo{
+        display: grid;
+        grid-template-columns: auto;
+    }
+
+    #cartmaindiv{
+        display: block;
+        width: 520px;
+        overflow: -moz-hidden-unscrollable;
+    }
+    .cartdiv{
+        width: 85%;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .displayuserordersdiv{
+    
+        padding: 2rem;
+        margin: 3% 5%;
+        color: gray ;
+    }
+    .ordered-products div img{
+        
+        min-width: 150px;
+    max-width: 150px;
+    min-height: 200px;
+    max-height: 200px;
+    }
+}
+
