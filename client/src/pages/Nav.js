@@ -8,11 +8,14 @@ import AdminLogin from '../component/admin/AdminLogin';
 function Nav() {
   return (
     <div>
+      <div className='contentdiv'>
     <Routes>
+      
     <Route path='/*' element={<Home/>}/>
     <Route path='/admin/*' element={<Admin/>}/>
     <Route path='/admin-login' element={<AdminLogin/>}/>
     </Routes>
+    </div>
     <Footer/>
     </div>
   )

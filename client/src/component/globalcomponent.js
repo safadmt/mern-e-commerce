@@ -1,8 +1,8 @@
 import { Button, Form, Row, Col } from "react-bootstrap";
 import React from 'react'
 import '../App.css'
-
-
+import '../css/Starrating.css'
+import {AiFillStar} from 'react-icons/ai'
 
 export function DisplaySelectForm({error, currentvalue,optlabel,index, loopitem,formlabel,mapobjvalue, formselectonchange, selectedvalue, name }) {
   if(error) {
@@ -148,5 +148,10 @@ export function PageNotFound ({data , className}) {
   )
 }
 
-
+export const StarRating = ({rating})=> {
+ 
+  return <div className="bg-emerald-500 px-2 rounded space-x-1 flex" style={{maxWidth:'4rem'}}>
+    <div><span className="font-medium">{rating}</span></div>
+    <div><i class="fa-solid fa-star"></i></div></div>
+}
 

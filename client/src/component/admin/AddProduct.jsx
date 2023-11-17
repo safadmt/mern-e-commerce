@@ -164,7 +164,7 @@ function AddProduct() {
     }
   }
   
-  // if(categories?.length > 0) {
+  
     return (
     <div>
     
@@ -220,7 +220,7 @@ function AddProduct() {
       
     </div>
   )
-  // }
+ 
   
 }
 

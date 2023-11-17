@@ -141,7 +141,11 @@ const OrderInfoSlice = createSlice({
         },
         clearOrderError: (state, action) => {
             state.error = null
-        }
+        },
+        clearPaymentStatus: (state, action) => {
+            state.payment_status = null
+        },
+        
     },
     extraReducers: (builder)=> {
         builder
@@ -247,7 +251,7 @@ const OrderInfoSlice = createSlice({
     }
 })
 
-export const {clearError,clearOrders, clearOrderError,clearOrder} = OrderInfoSlice.actions
+export const {clearError,clearOrders, clearOrderError,clearOrder,clearPaymentStatus} = OrderInfoSlice.actions
 export {verifyPayment, removeOrder,getuserOrders, 
     getOneOrder ,getAllOrders, getFilteredOrders, submitOrder, searchOrders, getOneOrderforadmin}
 export default OrderInfoSlice.reducer;

@@ -163,7 +163,7 @@ function Product() {
         {productlist.map((product,index)=> {
           return <tr>
           <td>{index + 1}</td>
-          <td><Link to={`/products/${product._id}`}><img src={`http://localhost:5000/images/${product.filename}`} style={{width:"150px"}}/></Link></td>
+          <td><Link to={`/admin/products/${product._id}`}><img src={`http://localhost:5000/images/${product.filename}`} style={{width:"150px"}}/></Link></td>
           <td>{product.product_name}</td>
           <td>{product.brandInfo?.brand_name}</td>
           <td>{product.categoryInfo?.category_name}</td>

@@ -1,6 +1,7 @@
-import mongoose from 'mongoose';
+import mongoose, { mongo } from 'mongoose';
 import Admin from '../model/admin.js';
 import Product from '../model/product.js';
+import ProductReview from '../model/reviewandrating.js';
 import fs from 'fs';
 
 
@@ -204,6 +205,7 @@ export const getSearchProduct = async (req, res , next) => {
                     quantity: 1,
                     filename: 1,
                     gender: 1,
+                    rating: 1,
                     description: 1,
                     categoryInfo: { $arrayElemAt: ['$categoryInfo',0]},
                     subcategoryInfo: {$arrayElemAt: ['$subcategoryInfo',0]},
@@ -505,3 +507,125 @@ export const getFilteredProducts = async (req, res, next) => {
         next("Sorry, Something went wrong. Please try again later")
     }
 }
+
+export const addReview = async(req, res)=> {
+   try{
+       const {productId} = req.params
+       if(!productId) return res.status(401).json("ProductId not found")
+       const {userid, review} = req.body;
+       const userReviewandRating = await ProductReview.findOne({productId,userId:userid});
+       if(userReviewandRating) {
+        userReviewandRating.review = review ?review : null;
+        await userReviewandRating.save()
+        console.log(userReviewandRating)
+        res.status(201).json(userReviewandRating)
+       } else{
+        const newReviwRating = new ProductReview({
+        productId,
+        userId: userid,
+        review: review ?review : null,
+        })
+        await newReviwRating.save();
+       console.log(newReviwRating)
+       res.status(201).json(newReviwRating);
+       }
+       
+
+       
+   }catch(err) {
+    console.log(err)
+   }
+}
+
+export const addRating = async(req, res)=> {
+    try{
+        const {productId} = req.params
+        if(!productId) return res.status(401).json("ProductId not found")
+        let {userid, rating} = req.body;
+        rating = rating ? Number(rating) : null;
+        const userReviewandRating = await ProductReview.findOne({productId,userId:userid});
+        if(userReviewandRating) { 
+         userReviewandRating.rating = rating
+         await userReviewandRating.save()
+         console.log(userReviewandRating)
+         res.status(201).json(userReviewandRating)
+        } else{
+         const newReviwRating = new ProductReview({
+         productId,
+         userId: userid,
+         rating: rating
+         })
+         await newReviwRating.save();
+         console.log(newReviwRating)
+         res.status(201).json(newReviwRating);
+        }
+        
+ 
+        
+    }catch(err) {
+     console.log(err)
+    }
+ }
+
+ export const getProductReviews = async(req,res) => {
+    try{
+        console.log("hello")
+       const {productId} = req.params;
+       const reviews = await ProductReview.aggregate([
+        {
+            $match: {productId: new mongoose.Types.ObjectId(productId)}
+        },
+        {
+            $lookup: {
+                from: 'users',
+                localField: 'userId',
+                foreignField: '_id',
+                as: 'user'
+            }
+            
+        },
+        {
+            $unwind: '$user'
+        },
+        {
+            $project: {
+                productId: 1,
+                userId: 1,
+                user_name: '$user.name',
+                rating : 1,
+                review: 1,
+                createdAt: 1,
+                updatedAt: 1
+            }
+        }
+       ])
+       console.log(reviews)
+       res.status(200).json(reviews)
+    }catch(err) {
+        console.log(err)
+    }
+ }
+
+ export const getAverageProductRating = async(req,res) => {
+    try{
+        const {productId} = req.params;
+        const avaragerating = await ProductReview.aggregate([
+            {
+                $match: {productId: new mongoose.Types.ObjectId(productId), rating: {$ne: null}}
+            },
+            {
+                $group: {
+                    _id: null,
+                    avaragerating: {$avg: '$rating'}
+                }
+            }
+        ])
+        
+        const product = await Product.findOne({_id: productId});
+        product.rating = avaragerating[0]?.avaragerating ? avaragerating[0].avaragerating.toFixed(1) : null
+        await product.save();
+        res.status(200).json("ok")
+    }catch(err) {
+        console.log(err)
+    }
+ }

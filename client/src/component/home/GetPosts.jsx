@@ -9,7 +9,7 @@ import { addToCart, clearCarterr, getCartCount } from '../../reduxtoolkit/cartRe
 import { Button, Col, Row, Form, Spinner } from 'react-bootstrap';
 import '../../App.css'
 import FilterProudcts from './FilterProudcts'
-import { PageNotFound, ProductPagination } from '../globalcomponent'
+import { PageNotFound, ProductPagination, StarRating } from '../globalcomponent'
 import { clearCategories, clearCategoryError, getAllCategory } from '../../reduxtoolkit/categoryReducer'
 import { clearSubcategories, clearSubcategoryError, getallsubcategory } from '../../reduxtoolkit/subcategoryReducer'
 import { clearBrandError, clearBrands, getAllBrand } from '../../reduxtoolkit/brandReducer'
@@ -261,9 +261,9 @@ function GetPosts() {
 
 
   useEffect(() => {
-    // const {category, subcategory,brand, price ,gender} = filterName;
-    // if(category.length > 0 || subcategory.length > 0 || brand.length > 0 
-    //   || price !== "" || gender.length > 0) {
+    const {category, subcategory,brand, price ,gender} = filterName;
+    if(category.length > 0 || subcategory.length > 0 || brand.length > 0 
+      || price !== "" || gender.length > 0) {
         setSearchParams({
       category: filterName.category.join("%"),
       brand: filterName.brand.join("%"),
@@ -271,7 +271,9 @@ function GetPosts() {
       price: filterName.price,
       gender: filterName.gender.join("%")
     })
-      // }
+      }else {
+        Navigate('/')
+      }
     
   }, [filterName])
 
@@ -487,7 +489,7 @@ function GetPosts() {
     }))
     setCurrentPage(1)
   }
-
+  
   if (loadingBrand || loadingCategory || loadingSubategory || brandloading || categoryloading
     || subcategoryloading) {
     return (
@@ -553,7 +555,9 @@ function GetPosts() {
                       <Row>
                         <Col className='' style={{ maxHeight: '20px', overflow: 'hidden' }}>
                           {product?.product_name ? product.product_name : product?.description}</Col>
+                          
                       </Row>
+                      <Row className='mt-2'><Col>  <StarRating rating={product.rating? product.rating : 0}/></Col></Row>
                       <Row className='flex pt-2 m-auto' style={{ maxWidth: "219px" }}>
                         <Col className='pt-1 font-medium'><i className="fa-solid fa-indian-rupee-sign"></i> {product.price}</Col>
                         <Button variant='primary' onClick={(e) => addTocart(e, product._id, product.price)}>Add to Cart</Button >

@@ -6,10 +6,11 @@
 
 #root {
     background-color: #CCC8AA;
-    min-height: 100vh;
     overflow-x: hidden;
 }
-
+.contentdiv{
+    min-height: calc(100vh - 256px);
+}
 nav{
     background-color: #116A7B;
 }
@@ -302,6 +303,7 @@ nav{
 }
 
 #footer{
+   
     overflow-x: hidden;
     width: 100%;
     padding: 20px 50px;
@@ -309,10 +311,14 @@ nav{
     grid-template-columns: auto auto auto;
     background-color: white;
     color: gray;
-    position: relative;
-    bottom: 0px;
+   
 }
 
+#viewproduct{
+    margin: 4rem;
+    background-color: white;
+
+}
 @media only screen and (max-width: 520px) {
     #orderpagecomponent{
         min-width: 300px; /* Set a fixed width for the container */
@@ -402,6 +408,16 @@ nav{
     }
     #footer .div{
         padding-bottom: 10px;
+    }
+    #viewproduct{
+        margin: 0;
+        background-color: white;
+        min-width: 40vh;
+        
+    }
+    .scrollreviewlist{
+        overflow: scroll;
+        min-width: 60vh;
     }
 
 }

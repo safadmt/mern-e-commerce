@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import PaymentMethod from '../component/checkout/PaymentMethod';
 import ReviewDeliveryItems from '../component/checkout/ReviewDeliveryItems';
 import { getTotalprice, userLogout } from '../reduxtoolkit/userReducer';
-import { removeOrder, verifyPayment } from '../reduxtoolkit/orderReducer';
+import { clearPaymentStatus, removeOrder, verifyPayment } from '../reduxtoolkit/orderReducer';
 import AddAddress from '../component/checkout/Addaddress';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -80,6 +80,9 @@ function Checkout() {
         if (payment_response == "success") {
             displaysuccesmsg("You Order has been placed")
             Navigate('/')
+        }
+        return ()=> {
+            dispatch(clearPaymentStatus())
         }
     }, [payment_response])
 

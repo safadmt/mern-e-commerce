@@ -14,6 +14,7 @@ import ManageBrand from '../component/admin/ManageBrand';
 import ManageSubCategories from '../component/admin/ManageSubCategories';
 import EditSubCategories from '../component/admin/EditSubCategories';
 import Orderdetails from './Orderdetails';
+import DisplayProduct from '../component/admin/DisplayProduct';
 
 
 function Admin() {
@@ -32,6 +33,7 @@ function Admin() {
             <Route path='/users' element={<Users/>}/>
             <Route path='/products' element={<Product/>}/>
             <Route path='/product/:productid' element={<Editproduct/>}/>
+            <Route path='/products/:productid' element={<DisplayProduct/>}/>
             <Route path='/add-product' element={<AddProduct/>}/>
             <Route path='/category' element= {<ManageCategories/>}/>
             <Route path='/brand' element={<ManageBrand/>}/>

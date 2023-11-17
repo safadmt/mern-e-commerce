@@ -10,6 +10,7 @@ import { userLogin, registerUser , userLogout,
     editUserInfo,createNewOrder,
     getCartTotal, stripePayment} from '../controllers/user.js';
 
+import { addRating, addReview, getAverageProductRating, getProductReviews } from '../controllers/product.js';
 import { jwtAuth } from '../middleware/auth.middleware.js';
 const router = express.Router();
 
@@ -26,12 +27,15 @@ router.get('/carttotalprice/:userid', jwtAuth, getCartTotal);
 router.post('/payment/place-order/:userid', jwtAuth, placeOrder);
 router.post('/payment/verify-payment', jwtAuth, verfiyPayment);
 router.delete('/order/remove-order/:orderid', jwtAuth, removeOrder);
-router.get('/orders/:userid', getUserOrders);
+router.get('/orders/:userid',jwtAuth, getUserOrders);
 router.get('/order/:orderid', getOneOrder);
 router.get('/', getAllUsers);
 router.get('/:id',jwtAuth, getOneUser);
 router.put('/:id', jwtAuth, editUserInfo);
 router.post('/stripe-payment-intent/:userid',jwtAuth, stripePayment)
 router.post('/orders/create/:userid', jwtAuth, createNewOrder)
-
+router.post('/product-review/:productId',jwtAuth, addReview);
+router.post('/product-rating/:productId',jwtAuth, addRating);
+router.get('/product-reviews/:productId', getProductReviews);
+router.get('/product/average-rating/:productId', getAverageProductRating);
 export default router;

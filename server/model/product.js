@@ -9,13 +9,14 @@
         brand: {type: mongoose.Schema.Types.ObjectId ,ref:'Brand',required: true},
         filename: {type: String , required: true},
         description: {type: String},
+        rating: {type: Number},
         is_deleted : {type:Boolean, default: false}
 
     }, { timestamps: true});
 
     productSchema.index({description: 'text',gender: 'text',product_name: 'text'});
    
-   
+
 
     const Product = mongoose.model("Product", productSchema);
     export default Product;

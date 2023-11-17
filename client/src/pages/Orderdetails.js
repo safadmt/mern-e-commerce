@@ -6,7 +6,7 @@ import { Card, Col, div, Row, Spinner } from 'react-bootstrap';
 import '../App.css';
 import { PageNotFound } from '../component/globalcomponent';
 function Orderdetails() {
-    const {orderId} = useParams();
+    const {orderid} = useParams();
     const dispatch = useDispatch();
     const orderDetails = useSelector(state=> state.orderInfo.order);
     const ordererror = useSelector(state=> state.orderInfo.error);
@@ -14,7 +14,7 @@ function Orderdetails() {
     const [order, setOrder] = useState(null)
     const [show, setShow] = useState(true);
     useEffect(()=> {
-        dispatch(getOneOrderforadmin(orderId))
+        dispatch(getOneOrderforadmin(orderid))
         
     } , [])
     useEffect(()=> {
@@ -23,7 +23,8 @@ function Orderdetails() {
             setOrder(orderDetails?.data)
             setShow(false)
         }
-    },[Orderdetails])
+    },[orderDetails])
+    console.log(orderDetails)
     useEffect(()=> {
         if(ordererror) {
             if(ordererror.response?.status === 404) {

@@ -1,0 +1,20 @@
+.rating {
+    display: flex;
+    
+    font-size: 24px;
+  }
+  
+  .star {
+    color: #ccc; /* Default star color */
+  }
+  
+  .star.filled {
+    color: yellow; /* Filled star color */
+  }
+  
+  .star.partial {
+    width: 50%; /* Adjust the width for partial stars (for example, 50% for 0.5 rating) */
+    overflow: hidden; /* Hide overflow */
+    display: grid; /* Keep it inline with other stars */
+    
+  }

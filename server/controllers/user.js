@@ -562,6 +562,7 @@ export const getUserOrders = async (req, res ,next) => {
 // $project: { "products.productId": 1, "products.quantity": 1,
 //  "totalamount": 1, newproducts: { $arrayElemAt: ["$newproducts", 0] } }
 export const getOneOrder = async (req, res ,next) => {
+    if(!req.params.orderid) return res.status(400).json("Order id is undefined")
     try {
         Order.aggregate([
             {
